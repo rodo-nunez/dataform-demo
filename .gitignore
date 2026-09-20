@@ -34,3 +34,7 @@ service-account*.json
 .DS_Store
 .idea/
 .vscode/
+
+# Generated files
+
+*.html
