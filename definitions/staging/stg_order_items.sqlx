@@ -1,0 +1,23 @@
+config {
+  type: "view",
+  schema: "staging",
+  tags: ["sales"],
+  description: "Order lines with gross, discount and net amounts.",
+  assertions: {
+    uniqueKey: ["order_item_id"],
+    nonNull: ["order_id", "product_id"],
+    rowConditions: ["quantity > 0"]
+  }
+}
+
+SELECT
+  order_item_id,
+  order_id,
+  product_id,
+  quantity,
+  unit_price,
+  discount_pct,
+  quantity * unit_price AS gross_amount,
+  ROUND(quantity * unit_price * discount_pct, 2) AS discount_amount,
+  quantity * unit_price - ROUND(quantity * unit_price * discount_pct, 2) AS net_amount
+FROM ${ref("raw", "order_items")}

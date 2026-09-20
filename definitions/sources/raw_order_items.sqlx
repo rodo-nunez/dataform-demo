@@ -1,0 +1,14 @@
+config {
+  type: "declaration",
+  schema: "raw",
+  name: "order_items",
+  description: "Order lines. One row per product in an order.",
+  columns: {
+    order_item_id: "Unique line identifier.",
+    order_id: "Parent order.",
+    product_id: "Product sold.",
+    quantity: "Units sold.",
+    unit_price: "Price per unit at the time of sale.",
+    discount_pct: "Discount applied to the line, from 0 to 1."
+  }
+}

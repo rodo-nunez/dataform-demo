@@ -1,0 +1,21 @@
+config {
+  type: "view",
+  schema: "staging",
+  tags: ["sales"],
+  description: "One row per order: the latest snapshot from the append-only raw log.",
+  assertions: {
+    uniqueKey: ["order_id"],
+    nonNull: ["order_id", "customer_id", "order_ts"],
+    rowConditions: ["status IN ('pending', 'completed', 'cancelled', 'returned')"]
+  }
+}
+
+SELECT
+  order_id,
+  customer_id,
+  order_ts,
+  updated_at,
+  LOWER(TRIM(status)) AS status,
+  channel
+FROM ${ref("raw", "orders")}
+QUALIFY ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY updated_at DESC) = 1

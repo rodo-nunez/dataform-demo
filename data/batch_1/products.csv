@@ -1,0 +1,81 @@
+product_id,product_name,category,unit_price,unit_cost
+1001,Classic Perfume Mini,Beauty,17.80,8.55
+1002,Classic Sunscreen,Beauty,20.29,13.00
+1003,Compact Lip Balm,Beauty,25.07,14.07
+1004,Compact Sunscreen,Beauty,16.52,8.76
+1005,Eco Body Lotion,Beauty,56.52,36.42
+1006,Mini Shampoo,Beauty,38.50,19.30
+1007,Pro Face Cream,Beauty,45.10,22.51
+1008,Smart Perfume Mini,Beauty,25.87,19.32
+1009,Studio Body Lotion,Beauty,40.20,24.81
+1010,Studio Hair Brush,Beauty,42.65,29.98
+1011,Travel Nail Kit,Beauty,47.68,24.73
+1012,Travel Shampoo,Beauty,6.77,3.69
+1013,Ultra Body Lotion,Beauty,19.73,10.13
+1014,Ultra Face Cream,Beauty,56.86,40.54
+1015,Ultra Hair Brush,Beauty,22.31,14.43
+1016,Compact Dashboard Design,Books,23.24,16.83
+1017,Deluxe Data Viz Guide,Books,25.52,13.51
+1018,Mini Cloud Atlas,Books,17.88,11.06
+1019,Mini ML Field Guide,Books,18.46,11.54
+1020,Pro Cloud Atlas,Books,41.32,23.54
+1021,Smart Analytics Journal,Books,16.90,12.66
+1022,Studio Cloud Atlas,Books,27.34,13.05
+1023,Studio Data Viz Guide,Books,10.70,5.17
+1024,Travel Cloud Atlas,Books,31.59,21.72
+1025,Travel Python Handbook,Books,24.20,11.35
+1026,Ultra ML Field Guide,Books,22.74,17.03
+1027,Classic Mouse,Electronics,123.47,91.53
+1028,Compact Speaker,Electronics,191.46,86.82
+1029,Deluxe Mouse,Electronics,162.75,106.52
+1030,Eco Earbuds,Electronics,125.08,66.30
+1031,Eco Monitor Stand,Electronics,146.40,70.78
+1032,Eco Speaker,Electronics,104.13,61.03
+1033,Eco Webcam,Electronics,210.53,150.06
+1034,Mini Charger,Electronics,68.99,41.41
+1035,Mini Speaker,Electronics,51.62,37.36
+1036,Mini Webcam,Electronics,193.46,104.38
+1037,Pro Power Bank,Electronics,145.98,92.36
+1038,Smart Keyboard,Electronics,46.33,31.45
+1039,Smart Speaker,Electronics,125.57,85.84
+1040,Studio Mouse,Electronics,123.72,55.70
+1041,Studio Power Bank,Electronics,81.45,37.13
+1042,Ultra Charger,Electronics,205.47,146.63
+1043,Ultra Mouse,Electronics,185.49,100.58
+1044,Classic Cutting Board,Home,12.75,9.10
+1045,Classic Plant Pot,Home,85.65,40.74
+1046,Classic Storage Bin,Home,47.85,22.53
+1047,Compact Storage Bin,Home,70.37,47.83
+1048,Deluxe Storage Bin,Home,18.53,10.98
+1049,Mini Plant Pot,Home,53.08,28.11
+1050,Mini Storage Bin,Home,79.54,45.89
+1051,Pro Coffee Grinder,Home,25.37,15.52
+1052,Pro Desk Lamp,Home,67.85,34.63
+1053,Pro Storage Bin,Home,33.56,25.12
+1054,Smart Candle Set,Home,61.29,35.64
+1055,Smart Wall Clock,Home,50.44,24.53
+1056,Studio Storage Bin,Home,26.43,14.57
+1057,Travel Plant Pot,Home,56.24,29.19
+1058,Travel Throw Blanket,Home,26.06,12.28
+1059,Compact Gym Bag,Sports,46.39,24.06
+1060,Compact Water Bottle,Sports,63.95,45.27
+1061,Deluxe Gym Bag,Sports,10.53,5.49
+1062,Deluxe Running Belt,Sports,48.81,25.10
+1063,Deluxe Water Bottle,Sports,14.47,10.57
+1064,Eco Resistance Bands,Sports,42.55,25.18
+1065,Eco Running Belt,Sports,56.22,38.92
+1066,Mini Water Bottle,Sports,18.19,8.71
+1067,Smart Cycling Gloves,Sports,33.59,19.38
+1068,Smart Resistance Bands,Sports,35.89,24.00
+1069,Studio Foam Roller,Sports,49.10,36.59
+1070,Compact Art Set,Toys,14.18,8.09
+1071,Deluxe Board Game,Toys,31.77,22.51
+1072,Deluxe Building Blocks,Toys,25.15,12.75
+1073,Eco Art Set,Toys,39.75,22.92
+1074,Eco Building Blocks,Toys,27.33,14.35
+1075,Eco Plush Bear,Toys,74.40,43.37
+1076,Mini Building Blocks,Toys,69.88,42.98
+1077,Mini Science Kit,Toys,10.69,8.02
+1078,Pro RC Car,Toys,68.03,50.39
+1079,Smart RC Car,Toys,74.62,52.58
+1080,Ultra Plush Bear,Toys,19.14,11.40

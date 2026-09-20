@@ -1,0 +1,22 @@
+config {
+  type: "table",
+  schema: "analytics",
+  tags: ["sales"],
+  description: "Customer dimension, ready for BI.",
+  bigquery: {
+    clusterBy: ["country_code"]
+  },
+  assertions: {
+    uniqueKey: ["customer_id"]
+  }
+}
+
+SELECT
+  customer_id,
+  full_name,
+  email,
+  country_code,
+  signup_date,
+  DATE_TRUNC(signup_date, MONTH) AS signup_month,
+  marketing_opt_in
+FROM ${ref("stg_customers")}

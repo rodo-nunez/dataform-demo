@@ -1,0 +1,10 @@
+# Copy to terraform.tfvars (gitignored) and adjust.
+project_id      = "encoders-sandbox-rodo"
+github_repo_url = "https://github.com/YOUR_GITHUB_USER/dataform-demo.git"
+
+# Do NOT put the token here. Export it instead:
+#   export TF_VAR_github_token="github_pat_..."
+
+# Optional
+# dataform_region        = "us-central1"
+# workflow_cron_schedule = "0 6 * * *"

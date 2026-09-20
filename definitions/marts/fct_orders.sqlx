@@ -1,0 +1,52 @@
+config {
+  type: "incremental",
+  schema: "analytics",
+  tags: ["sales"],
+  description: "One row per order with item totals. Incremental: only orders updated since the last run are processed and MERGEd by order_id.",
+  uniqueKey: ["order_id"],
+  dependOnDependencyAssertions: true,
+  bigquery: {
+    partitionBy: "DATE(order_ts)",
+    clusterBy: ["channel", "status"]
+  },
+  columns: {
+    order_id: "Unique order identifier.",
+    updated_at: "Timestamp of the snapshot that produced this row (incremental watermark).",
+    net_revenue: "Revenue after discounts."
+  },
+  assertions: {
+    uniqueKey: ["order_id"],
+    nonNull: ["order_id", "customer_id"],
+    rowConditions: ["net_revenue >= 0"]
+  }
+}
+
+WITH order_totals AS (
+  SELECT
+    order_id,
+    COUNT(*) AS items_count,
+    SUM(quantity) AS units,
+    SUM(gross_amount) AS gross_revenue,
+    SUM(discount_amount) AS discount_amount,
+    SUM(net_amount) AS net_revenue
+  FROM ${ref("stg_order_items")}
+  GROUP BY order_id
+)
+
+SELECT
+  o.order_id,
+  o.customer_id,
+  o.order_ts,
+  o.updated_at,
+  o.status,
+  o.channel,
+  IFNULL(t.items_count, 0) AS items_count,
+  IFNULL(t.units, 0) AS units,
+  IFNULL(t.gross_revenue, 0) AS gross_revenue,
+  IFNULL(t.discount_amount, 0) AS discount_amount,
+  IFNULL(t.net_revenue, 0) AS net_revenue
+FROM ${ref("stg_orders")} AS o
+LEFT JOIN order_totals AS t
+  ON o.order_id = t.order_id
+-- On incremental runs only pick up new or changed orders. On the first run (or a full refresh) take everything.
+${when(incremental(), `WHERE o.updated_at > (SELECT MAX(updated_at) FROM ${self()})`)}

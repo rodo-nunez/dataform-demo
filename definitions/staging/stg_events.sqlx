@@ -1,0 +1,20 @@
+config {
+  type: "view",
+  schema: "staging",
+  tags: ["events"],
+  description: "Clickstream events with normalised event_type / device and a derived event_date.",
+  assertions: {
+    uniqueKey: ["event_id"],
+    nonNull: ["event_id", "session_id", "event_ts"]
+  }
+}
+
+SELECT
+  event_id,
+  customer_id,
+  session_id,
+  event_ts,
+  DATE(event_ts) AS event_date,
+  LOWER(TRIM(event_type)) AS event_type,
+  LOWER(TRIM(device)) AS device
+FROM ${ref("raw", "events")}

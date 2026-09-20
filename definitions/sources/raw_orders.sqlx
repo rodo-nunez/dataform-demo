@@ -1,0 +1,14 @@
+config {
+  type: "declaration",
+  schema: "raw",
+  name: "orders",
+  description: "Append-only log of order snapshots: the same order_id can appear several times, the latest updated_at wins.",
+  columns: {
+    order_id: "Order identifier (NOT unique in raw).",
+    customer_id: "Customer who placed the order.",
+    order_ts: "When the order was placed (UTC).",
+    updated_at: "When this snapshot was produced (UTC). Used as the incremental watermark.",
+    status: "pending, completed, cancelled or returned.",
+    channel: "web, mobile_app or marketplace."
+  }
+}

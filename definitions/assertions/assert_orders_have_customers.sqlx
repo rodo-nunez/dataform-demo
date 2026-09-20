@@ -1,0 +1,13 @@
+config {
+  type: "assertion",
+  tags: ["sales"],
+  description: "Every order must belong to a known customer. Any returned row is a violation and fails the assertion."
+}
+
+SELECT
+  o.order_id,
+  o.customer_id
+FROM ${ref("stg_orders")} AS o
+LEFT JOIN ${ref("stg_customers")} AS c
+  ON o.customer_id = c.customer_id
+WHERE c.customer_id IS NULL

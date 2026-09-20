@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  schema: "analytics",
+  tags: ["sales"],
+  description: "Product dimension with margin, ready for BI.",
+  assertions: {
+    uniqueKey: ["product_id"]
+  }
+}
+
+SELECT
+  product_id,
+  product_name,
+  category,
+  unit_price,
+  unit_cost,
+  unit_margin,
+  SAFE_DIVIDE(unit_margin, unit_price) AS margin_pct
+FROM ${ref("stg_products")}

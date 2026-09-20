@@ -1,0 +1,22 @@
+[project]
+name = "dataform-demo"
+version = "0.1.0"
+description = "Demo repo for the en_coders episode on Dataform: Terraform infra, sample data, Dataform project and plain-SQL equivalents."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "google-cloud-bigquery>=3.25",
+]
+
+[project.scripts]
+dfdemo-generate = "dataform_demo.generate_data:main"
+dfdemo-load = "dataform_demo.load_data:main"
+dfdemo-run-sql = "dataform_demo.run_sql:main"
+dfdemo-preflight = "dataform_demo.preflight:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dataform_demo"]

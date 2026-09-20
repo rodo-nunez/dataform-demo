@@ -1,0 +1,27 @@
+config {
+  type: "view",
+  schema: "staging",
+  tags: ["sales"],
+  description: "Cleaned customers: trimmed and lower-cased email, upper-cased country code, proper-cased names.",
+  columns: {
+    customer_id: "Unique customer identifier.",
+    full_name: "First and last name, proper-cased.",
+    email: "Trimmed, lower-cased email.",
+    country_code: "Upper-cased ISO-2 country code."
+  },
+  assertions: {
+    uniqueKey: ["customer_id"],
+    nonNull: ["customer_id", "email", "country_code"]
+  }
+}
+
+SELECT
+  customer_id,
+  INITCAP(TRIM(first_name)) AS first_name,
+  INITCAP(TRIM(last_name)) AS last_name,
+  CONCAT(INITCAP(TRIM(first_name)), ' ', INITCAP(TRIM(last_name))) AS full_name,
+  LOWER(TRIM(email)) AS email,
+  UPPER(TRIM(country)) AS country_code,
+  signup_date,
+  marketing_opt_in
+FROM ${ref("raw", "customers")}

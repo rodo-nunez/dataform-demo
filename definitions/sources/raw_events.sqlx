@@ -1,0 +1,14 @@
+config {
+  type: "declaration",
+  schema: "raw",
+  name: "events",
+  description: "Clickstream events. One row per event; customer_id is NULL for anonymous sessions.",
+  columns: {
+    event_id: "Unique event identifier.",
+    customer_id: "Known customer, NULL when anonymous.",
+    session_id: "Browsing session identifier.",
+    event_ts: "Event time (UTC).",
+    event_type: "page_view, add_to_cart, begin_checkout or purchase.",
+    device: "desktop, mobile or tablet (sometimes capitalised)."
+  }
+}

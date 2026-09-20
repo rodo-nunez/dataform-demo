@@ -1,0 +1,36 @@
+# ---- Python / uv
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+
+# ---- Terraform (state may contain secrets such as the GitHub token!)
+**/.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfvars
+*.auto.tfvars
+override.tf
+override.tf.json
+# keep terraform/.terraform.lock.hcl committed (provider version pinning)
+
+# ---- Dataform / Node (created by `dataform compile`)
+node_modules/
+.df-credentials.json
+
+# ---- Secrets and local config
+.env
+*.pem
+*.key
+*credentials*.json
+service-account*.json
+
+# ---- OS / editor
+.DS_Store
+.idea/
+.vscode/

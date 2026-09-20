@@ -1,0 +1,13 @@
+config {
+  type: "declaration",
+  schema: "raw",
+  name: "products",
+  description: "Product catalog. One row per product.",
+  columns: {
+    product_id: "Unique product identifier.",
+    product_name: "Product display name.",
+    category: "Product category.",
+    unit_price: "List price.",
+    unit_cost: "Cost of goods."
+  }
+}

@@ -1,0 +1,15 @@
+config {
+  type: "declaration",
+  schema: "raw",
+  name: "customers",
+  description: "Customer master data as delivered by the source system (messy casing and whitespace). One row per customer.",
+  columns: {
+    customer_id: "Unique customer identifier.",
+    first_name: "First name, inconsistent casing.",
+    last_name: "Last name, inconsistent casing.",
+    email: "Email, may contain uppercase and surrounding whitespace.",
+    country: "ISO-2 country code, sometimes lowercase.",
+    signup_date: "Date the customer signed up.",
+    marketing_opt_in: "Whether the customer accepted marketing emails."
+  }
+}

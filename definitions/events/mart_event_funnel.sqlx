@@ -1,0 +1,25 @@
+config {
+  type: "table",
+  schema: "analytics",
+  tags: ["events"],
+  description: "Daily purchase funnel by device: distinct sessions reaching each step and step-to-step conversion. Columns are generated from includes/constants.js.",
+  bigquery: {
+    partitionBy: "event_date"
+  }
+}
+
+-- The column lists below are generated with JavaScript helpers (includes/helpers.js).
+-- Add a step to FUNNEL_STEPS and this query, plus its rates, updates itself.
+WITH sessions AS (
+  SELECT
+    event_date,
+    device,
+    ${helpers.sessionsByStep(constants.FUNNEL_STEPS)}
+  FROM ${ref("stg_events")}
+  GROUP BY event_date, device
+)
+
+SELECT
+  *,
+  ${helpers.conversionRates(constants.FUNNEL_STEPS)}
+FROM sessions

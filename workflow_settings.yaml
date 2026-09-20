@@ -1,0 +1,8 @@
+# Dataform project settings.
+# NOTE: the Dataform project lives at the REPOSITORY ROOT on purpose (Dataform's Git integration
+# reads the project from the root of the connected repo). See docs/adr/0004-*.md.
+dataformCoreVersion: 3.0.70
+defaultProject: encoders-sandbox-rodo
+defaultLocation: US
+defaultDataset: analytics
+defaultAssertionDataset: dataform_assertions

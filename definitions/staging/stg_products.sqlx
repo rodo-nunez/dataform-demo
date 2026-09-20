@@ -1,0 +1,19 @@
+config {
+  type: "view",
+  schema: "staging",
+  tags: ["sales"],
+  description: "Products with unit margin.",
+  assertions: {
+    uniqueKey: ["product_id"],
+    rowConditions: ["unit_price > 0", "unit_cost >= 0"]
+  }
+}
+
+SELECT
+  product_id,
+  TRIM(product_name) AS product_name,
+  category,
+  unit_price,
+  unit_cost,
+  unit_price - unit_cost AS unit_margin
+FROM ${ref("raw", "products")}
