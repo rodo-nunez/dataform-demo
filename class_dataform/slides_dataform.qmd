@@ -1082,7 +1082,7 @@ En SQL puro todo esto es "una carpeta en Drive" o convenciones de equipo.
 Mensaje clave: la ganancia NO es "menos líneas de SQL" (los SELECT son iguales); es correctitud, mantenibilidad y reproducibilidad.
 :::
 
-# Pros y contras (sin marketing)
+# Pros y contras
 
 ::: {.notes}
 ⏱ 0:40–0:45. Ser honesto genera confianza. Varias de estas limitaciones vienen de reseñas y experiencias publicadas por equipos que compararon herramientas; son opiniones, no leyes.
@@ -1091,7 +1091,7 @@ Mensaje clave: la ganancia NO es "menos líneas de SQL" (los SELECT son iguales)
 ## Lo bueno ✅
 
 ::: {.incremental}
-- 🧰 **Cero infraestructura**: servicio serverless dentro de BigQuery
+- 🧰 **Cero infraestructura on-prem**: servicio serverless dentro de BigQuery
 - 💸 **Sin costo propio**: pagas solo las consultas de BigQuery
 - 🔐 **Integración nativa** con IAM, BigQuery y Terraform
 - 📈 **Curva suave** si ya sabes SQL: el 90 % del archivo es un `SELECT`
@@ -1126,7 +1126,7 @@ No digas "Dataform está abandonado": hay opiniones de la comunidad en ambos sen
 
 | ✅ Dataform es buena idea si… | ⚠️ Piénsalo dos veces si… |
 |---|---|
-| Tu warehouse es **BigQuery** (y lo será) | Tienes **más de un warehouse** (Snowflake, Databricks…) |
+| Tu warehouse es **BigQuery** | Tienes **más de un warehouse** (Snowflake, Databricks…) |
 | Equipo **SQL-first**, chico o mediano | Necesitas un **ecosistema grande** de paquetes e integraciones |
 | Quieres **cero infraestructura** | Tu equipo **ya usa dbt** y funciona bien |
 | Ya vives en **GCP** (IAM, Terraform) | Gran parte de tu transformación es **Python/ML**, no SQL |
